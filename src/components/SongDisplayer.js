@@ -1,10 +1,10 @@
 import React from 'react'
 import classes from '../styles/Requester.module.css'
 
-const SongDisplayer = () => {
+const SongDisplayer = ({ request, showRequest }) => {
   return (
     <div className={classes.songContainer}>
-      <p className={classes.individualSongs}><span>✨ song request ✨</span></p>
+      {showRequest && <p className={classes.individualSongs}><span>{request}</span></p>}
     </div>
   )
 }
