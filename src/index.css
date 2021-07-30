@@ -26,6 +26,24 @@ main {
   background-size: cover;
 }
 
+button, input[type="submit"], input {
+  border-radius: 0.5rem;
+  border: 0.2rem solid white;
+  height: 2rem;
+  color: white;
+  background-color: #3A328B;
+}
+
+::placeholder {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+span {
+  border-radius: 0.5rem;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

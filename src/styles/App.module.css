@@ -34,12 +34,15 @@
 
 .footer {
   top: 0;
-  right: 0;
+  left: 0;
   position: fixed;
+  text-align: center;
 }
 
-.footer p {
+.footer .sponsored {
   margin: inherit;
+  letter-spacing: 0.3rem;
+  text-decoration: underline;
 }
 
 .plug {

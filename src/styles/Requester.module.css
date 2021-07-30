@@ -1,15 +1,23 @@
-.requester {
-  display: flex;
-  flex-direction: column;
+.requestContainer {
+  height: 70%;
+  overflow: scroll;
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
+.requestContainer::-webkit-scrollbar {
+  width: 1rem;
+  background-color: transparent;
+}
+
+.requestContainer::-webkit-scrollbar-track {
+  border-radius: 0.3rem;
+}
+
+.requestContainer::-webkit-scrollbar-thumb {
+  border-radius: 0.3rem;
+  background-color: #3A328B;
 }
 
 .field {
-  border-radius: 0.5rem;
   width: 20rem;
   margin-top: 1rem;
   margin-right: 1rem;
@@ -17,23 +25,6 @@
 }
 
 .submitBtn {
-  border-radius: 0.5rem;
   text-transform: uppercase;
-  height: 2rem;
   margin-top: 1rem;
-}
-
-.requestContainer {
-  margin-left: 1rem;
-}
-
-.individualSongs p {
-  margin: 0;
-  padding: 0;
-}
-
-.individualSongs span {
-  background-color: #3A328B;
-  color: white;
-  font-size: 2rem;
 }

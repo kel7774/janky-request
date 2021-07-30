@@ -1,0 +1,10 @@
+.individualSongs p {
+  margin: 0;
+  padding: 0;
+}
+
+.individualSongs span {
+  background-color: #3A328B;
+  color: white;
+  font-size: 2rem;
+}
