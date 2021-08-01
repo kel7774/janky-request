@@ -20,6 +20,8 @@ header {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   background-image: url('assets/background_jazz.jpeg');
   background-repeat: no-repeat;
@@ -29,7 +31,8 @@ main {
 button, input[type="submit"], input {
   border-radius: 0.5rem;
   border: 0.2rem solid white;
-  height: 2rem;
+  height: 2.4rem;
+  width: 6rem;
   color: white;
   background-color: #3A328B;
 }

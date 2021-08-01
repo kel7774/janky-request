@@ -5,7 +5,7 @@ const Songs = ({ index, song, removeSong }) => {
   return (
     <div className={classes.songContainer}>
       <p className={classes.individualSongs}><span>💩{song}💩</span></p>
-      <button onClick={() => removeSong(index)}>remove</button>
+      <button onClick={() => removeSong(index)}>done</button>
     </div>
   )
 }

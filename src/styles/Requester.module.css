@@ -1,6 +1,8 @@
 .requestContainer {
   height: 70%;
+  width: 30%;
   overflow: scroll;
+  text-align: center;
 }
 
 .requestContainer::-webkit-scrollbar {
