@@ -11,7 +11,30 @@
 }
 
 .songContainer {
+  margin: 5rem 50rem -7rem 50rem;
+  width: 30%;
+  height: 80%;
+  overflow: scroll;
+}
 
+.songContainer::-webkit-scrollbar {
+  width: 1rem;
+  background-color: transparent;
+}
+
+.songContainer::-webkit-scrollbar-track {
+  border-radius: 0.3rem;
+}
+
+.songContainer::-webkit-scrollbar-thumb {
+  border-radius: 0.3rem;
+  background-color: #3A328B;
+}
+
+.songContainer h1 span {
+  font-size: 3rem;
+  background-color: #3A328B;
+  color: white;
 }
 
 .container h1 {
@@ -30,11 +53,23 @@
 
 .plug span {
   background-color: #3A328B;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: white;
 }
 
 .plug a {
+  text-decoration: underline;
+  color: white;
+}
+
+.footer {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.footer .sponsored {
+  margin: 0 0 0.5rem 0;
   text-decoration: underline;
   color: white;
 }
