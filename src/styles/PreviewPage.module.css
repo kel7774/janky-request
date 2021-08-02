@@ -3,6 +3,15 @@
   background-image: url('../assets/hunter_peyton.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.songContainer {
+
 }
 
 .container h1 {
