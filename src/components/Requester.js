@@ -1,66 +1,71 @@
 import React, { useState, useEffect } from 'react'
-import { useEasybase } from 'easybase-react'
+import db from '../firebase.config'
 import Songs from './Songs'
 import classes from '../styles/Requester.module.css'
 
 const Requester = () => {
-  const [easybaseData, setEasybaseData] = useState([])
-  const { db } = useEasybase()
-  console.log(easybaseData)
-  const [songs, setSongs] = useState([])
-  const [value, setValue] = useState('')
+  const [song, setSong] = useState('')
+  const [requester, setRequester] = useState('')
 
-  const mounted = async () => {
-    const ebData = await db('REQUESTS').return().limit(15).all()
-    setEasybaseData(ebData)
+  function useSongs () {
+    const [songs, setSongs] = useState([])
+    useEffect(() => {
+      db.collection('requests')
+        .onSnapshot(snapshot => {
+          const lists = snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+          }))
+          setSongs(lists)
+        })
+    }, [])
+    return songs
   }
 
-  useEffect(() => {
-    mounted()
-  }, [])
+  const songs = useSongs()
 
-  const addSong = (song) => {
-    const newSong = [...songs, song]
-    setSongs(newSong)
-  }
-
-  const deleteSong = async () => {
-    await db('REQUESTS').delete().one()
-  }
-  // const removeSong = index => {
-  //   const newSong = [...songs]
-  //   newSong.splice(index, 1)
-  //   setSongs(newSong)
-  // }
-
-  const handleSubmit = e => {
+  const addSong = (e) => {
     e.preventDefault()
-    if (!value) return
-    setValue('')
+    db.collection('requests').add({
+      song,
+      requester
+    })
+    setSong('')
+    setRequester('')
+  }
+
+  const deleteSong = id => {
+    db.collection('requests').doc(id).delete()
   }
 
   return (
     <>
       <div className={classes.container}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={addSong}>
           <input
             type='text'
-            value={value}
-            onChange={e => setValue(e.target.value)}
             className={classes.field}
-            placeholder='shitty song'
+            value={requester}
+            onChange={e => setRequester(e.target.value)}
+            placeholder='this person'
+          />
+          <input
+            type='text'
+            className={classes.field}
+            value={song}
+            onChange={e => setSong(e.target.value)}
+            placeholder='wants to hear...'
           />
           <input className={classes.submitBtn} type='submit' />
         </form>
       </div>
       <div className={classes.requestContainer}>
-        {easybaseData.map((song, index) => (
+        {songs.map((song, index) => (
           <Songs
             key={index}
             index={index}
             song={song}
             deleteSong={deleteSong}
-            // addASong={addASong}
           />
         ))}
       </div>

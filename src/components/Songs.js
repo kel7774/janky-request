@@ -6,9 +6,8 @@ const Songs = ({ index, song, deleteSong }) => {
   const { isAuthenticated } = useAuth0()
   return (
     <div className={classes.songContainer}>
-      <p className={classes.individualSongs}><span>💩{song.songname}</span></p>
-      <p className={classes.individualSongs}><span>😈{song.requester}</span></p>
-      {isAuthenticated && <button onClick={deleteSong}>done</button>}
+      <p key={song.id} className={classes.individualSongs}><span>💩{song.song} requested by 😈{song.requester}</span></p>
+      {isAuthenticated && <button onClick={() => deleteSong(song.id)}>done</button>}
     </div>
   )
 }
