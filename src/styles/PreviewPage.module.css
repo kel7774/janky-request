@@ -1,0 +1,31 @@
+.container {
+  height: 100vh;
+  background-image: url('../assets/hunter_peyton.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container h1 {
+  margin: 0;
+}
+
+.plug {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.plug p {
+  margin: 0;
+}
+
+.plug span {
+  background-color: #3A328B;
+  font-size: 2rem;
+  color: white;
+}
+
+.plug a {
+  text-decoration: underline;
+  color: white;
+}
