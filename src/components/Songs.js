@@ -10,7 +10,7 @@ const Songs = ({ song, deleteSong }) => {
         <p key={song.id} className={classes.individualSongs}><span>{song.song}🎹{' '}</span></p>
         <p className={classes.requester}><span>requested by 😈{' '}{song.requester}</span></p>
       </div>
-      {isAuthenticated && <button onClick={() => deleteSong(song.id)}>done</button>}
+      {isAuthenticated ? <button onClick={() => deleteSong(song.id)}>done</button> : null}
     </div>
   )
 }
