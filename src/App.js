@@ -13,8 +13,7 @@ function App () {
     <div className='App'>
       <Switch>
         <Route path='/' exact component={PreviewPage} />
-        {/* <ProtectedRoute path='/main' component={MainContent} /> */}
-        <Route path='/main' component={MainContent} />
+        <ProtectedRoute path='/main' component={MainContent} />
       </Switch>
       <NavBar />
     </div>
