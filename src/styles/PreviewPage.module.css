@@ -76,3 +76,61 @@
 
 /* mobile-design */
 
+.mobileContainer {
+  height: 100vh;
+  background: url('../assets/showMeStonks.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.mobileSongContainer {
+  margin: 0 auto;
+  width: 50%;
+  height: 70%;
+  overflow: scroll;
+}
+
+.mobileContainer h1 span {
+  font-size: 2rem;
+  background-color: #3A328B;
+  border-radius: 0.5rem;
+  color: white;
+}
+
+.mobileFooter .sponsored {
+  text-decoration: underline;
+  color: white;
+  font-size: 0.6rem;
+  font-family:'Courier New', Courier, monospace;
+}
+
+.mobileFooter img {
+  background-color: white;
+  opacity: 0.7;
+  border-radius: 0.5rem;
+}
+
+.mobilePlug {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 0.7rem;
+}
+
+.mobilePlug span {
+  background-color: #3A328B;
+  color: white;
+}
+
+.mobilePlug p {
+  margin: 0;
+}
+
+.mobilePlug a {
+  color: white;
+}
