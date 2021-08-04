@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import { useMediaQuery } from 'react-responsive'
 import db from '../firebase.config'
 import Songs from './Songs'
 import classes from '../styles/Requester.module.css'
 
 const Requester = () => {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 767px)' })
+  const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 767px)' })
+
   const [song, setSong] = useState('')
   const [requester, setRequester] = useState('')
 
@@ -42,33 +46,75 @@ const Requester = () => {
     <>
       <div className={classes.container}>
         <form onSubmit={addSong}>
-          <input
-            type='text'
-            className={classes.field}
-            value={requester}
-            onChange={e => setRequester(e.target.value)}
-            placeholder='this person'
-          />
-          <input
-            type='text'
-            className={classes.field}
-            value={song}
-            onChange={e => setSong(e.target.value)}
-            placeholder='wants to hear...'
-          />
-          <input className={classes.submitBtn} type='submit' />
+          {
+            isTabletOrMobile &&
+            isTabletOrMobileDevice
+              ? (
+                <div className={classes.mobileInputContainer}>
+                  <input
+                    type='text'
+                    className={classes.fieldMobile}
+                    value={requester}
+                    onChange={e => setRequester(e.target.value)}
+                    placeholder='this person'
+                  />
+                  <input
+                    type='text'
+                    className={classes.fieldMobile}
+                    value={song}
+                    onChange={e => setSong(e.target.value)}
+                    placeholder='wants to hear...'
+                  />
+                  <input className={classes.submitBtn} type='submit' />
+                </div>)
+              : (
+                <div>
+                  <input
+                    type='text'
+                    className={classes.field}
+                    value={requester}
+                    onChange={e => setRequester(e.target.value)}
+                    placeholder='this person'
+                  />
+                  <input
+                    type='text'
+                    className={classes.field}
+                    value={song}
+                    onChange={e => setSong(e.target.value)}
+                    placeholder='wants to hear...'
+                  />
+                  <input className={classes.submitBtn} type='submit' />
+                </div>
+                )
+          }
         </form>
       </div>
-      <div className={classes.requestContainer}>
-        {songs.map((song, index) => (
-          <Songs
-            key={index}
-            index={index}
-            song={song}
-            deleteSong={deleteSong}
-          />
-        ))}
-      </div>
+      {
+        isTabletOrMobile &&
+        isTabletOrMobileDevice
+          ? (
+            <div className={classes.requestContainerMobile}>
+              {songs.map((song, index) => (
+                <Songs
+                  key={index}
+                  index={index}
+                  song={song}
+                  deleteSong={deleteSong}
+                />
+              ))}
+            </div>)
+          : (
+            <div className={classes.requestContainer}>
+              {songs.map((song, index) => (
+                <Songs
+                  key={index}
+                  index={index}
+                  song={song}
+                  deleteSong={deleteSong}
+                />
+              ))}
+            </div>)
+      }
     </>
   )
 }

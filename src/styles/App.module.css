@@ -56,3 +56,41 @@
   color: black;
   font-weight: 500;
 }
+
+/* mobile design */
+
+.mobileDescription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Ad Lib';
+}
+
+.mobileDescription .title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.mobileDescription .subtitle {
+  font-size: 1rem;
+}
+
+.mobilePlug {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  font-size: 0.7rem;
+}
+
+.mobilePlug a {
+  text-decoration: underline;
+  color: black;
+  font-weight: 500;
+}
+
+.mobileSponsor {
+  font-size: 0.7rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Courier New', Courier, monospace;
+}
