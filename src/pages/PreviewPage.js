@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { useMediaQuery } from 'react-responsive'
+// import { useMediaQuery } from 'react-responsive'
 import irishwhiskey from '../assets/irishwhiskey.png'
 import db from '../firebase.config'
 import Songs from '../components/Songs'
 import classes from '../styles/PreviewPage.module.css'
 
 const PreviewPage = () => {
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
-  const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' })
+  // const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+  // const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' })
 
   function useSongs () {
     const [songs, setSongs] = useState([])
