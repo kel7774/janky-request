@@ -63,7 +63,7 @@ const PreviewPage = () => {
                 ))}
               </div>
               <div className={classes.plug}>
-                <p><span>made by <span>👩🏻‍💻</span> <a href='https://kellilandry.dev' target='_blank' rel='noreferrer'>kelli landry</a> (hire me!)</span></p>
+                <p><span>made by <span>👩🏻‍💻</span> <a href='https://kellilandry.dev' target='_blank' rel='noreferrer'>kelli landry</a></span></p>
               </div>
               <div className={classes.footer}>
                 <p className={classes.sponsored}>

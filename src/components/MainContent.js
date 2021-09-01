@@ -26,7 +26,7 @@ const MainContent = () => {
             : (
               <div className={classes.description}>
                 <div className={classes.plug}>
-                  <p>made by <span>👩🏻‍💻</span> <a href='https://kellilandry.dev' target='_blank' rel='noreferrer'>kelli landry</a> (sup, i need a job).</p>
+                  <p>made by <span>👩🏻‍💻</span> <a href='https://kellilandry.dev' target='_blank' rel='noreferrer'>kelli landry</a></p>
                 </div>
                 <div className={classes.footer}>
                   <p className={classes.sponsored}>
