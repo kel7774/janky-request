@@ -1,43 +1,28 @@
 import React from 'react'
 import { useMediaQuery } from 'react-responsive'
 import Requester from './Requester'
-import classes from '../styles/App.module.css'
 
 const MainContent = () => {
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
-  const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' })
-
   return (
     <div>
       <header>
-        {
-          isTabletOrMobile &&
-          isTabletOrMobileDevice
-            ? (
-              <div className={classes.mobileDescription}>
-                <div className={classes.mobilePlug}>
-                  <p>made by <span>👩🏻‍💻</span> <a href='https://kellilandry.dev' target='_blank' rel='noreferrer'>kelli landry</a> (hire me!)</p>
-                </div>
-                <h1 className={classes.title}><span className={classes.span}>the janky piano show presents: janky requests</span></h1>
-                <h2 className={classes.subtitle}><span className={classes.span}>because without this, peyton's shit at remembering</span></h2>
-                <strong className={classes.mobileSponsor}>sponsored by:</strong>
-              </div>)
-            : (
-              <div className={classes.description}>
-                <div className={classes.plug}>
-                  <p>made by <span>👩🏻‍💻</span> <a href='https://kellilandry.dev' target='_blank' rel='noreferrer'>kelli landry</a></p>
-                </div>
-                <div className={classes.footer}>
-                  <p className={classes.sponsored}>
-                    <strong>sponsored by:</strong>
-                  </p>
-                </div>
-                <h1 className={classes.title}><span className={classes.span}>the janky piano show presents: janky requests</span></h1>
-                <h2 className={classes.subtitle}><span className={classes.span}>because without this, peyton's shit at remembering</span></h2>
-              </div>)
-        }
+        <div className>
+          <div className>
+            <p>made by <span>👩🏻‍💻</span> <a href='https://kellilandry.dev' target='_blank' rel='noreferrer'>kelli landry</a> (hire me!)</p>
+          </div>
+          <h1 ><span className>the janky piano show presents: janky requests</span></h1>
+          <h2 className><span>because without this, peyton's shit at remembering</span></h2>
+          <strong className>sponsored by:</strong>
+        </div>
+        <div className>
+          <div className>
+            <p>made by <span>👩🏻‍💻</span> <a href='https://kellilandry.dev' target='_blank' rel='noreferrer'>kelli landry</a></p>
+          </div>
+          <h1 className><span className>the janky piano show presents: janky requests</span></h1>
+          <h2 className><span className>because without this, peyton's shit at remembering</span></h2>
+        </div>
       </header>
-      <main className={classes.main}>
+      <main className>
         <Requester />
       </main>
     </div>

@@ -15,7 +15,7 @@ function App () {
       <TopNav />
       <Switch>
         <Route path='/' exact component={PreviewPage} />
-        <ProtectedRoute path='/main' component={MainContent} />
+        <Route path='/main' component={MainContent} />
       </Switch>
       <NavBar />
     </div>
