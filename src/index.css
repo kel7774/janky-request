@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: 'Ad Lib';
   src: local('Ad Lib'), url(../src/assets/fonts/AdLibRegular.ttf) format('truetype');

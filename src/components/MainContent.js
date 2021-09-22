@@ -21,7 +21,6 @@ const MainContent = () => {
                 <h1 className={classes.title}><span className={classes.span}>the janky piano show presents: janky requests</span></h1>
                 <h2 className={classes.subtitle}><span className={classes.span}>because without this, peyton's shit at remembering</span></h2>
                 <strong className={classes.mobileSponsor}>sponsored by:</strong>
-                <img src='irishwhiskey.png' height={90} width={90} alt='sponsored by jameson' />
               </div>)
             : (
               <div className={classes.description}>
@@ -32,7 +31,6 @@ const MainContent = () => {
                   <p className={classes.sponsored}>
                     <strong>sponsored by:</strong>
                   </p>
-                  <img src='irishwhiskey.png' height={150} width={200} alt='sponsored by jameson' />
                 </div>
                 <h1 className={classes.title}><span className={classes.span}>the janky piano show presents: janky requests</span></h1>
                 <h2 className={classes.subtitle}><span className={classes.span}>because without this, peyton's shit at remembering</span></h2>
