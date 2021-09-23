@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 
-.main-page-content {
+.main-page-content,
+.register-user-content {
   background: url('../src/assets/Jazz_overlay.jpg') no-repeat;
   height: 100vh;
   background-size: cover;
@@ -17,17 +18,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Helvetica', 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
 }

@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { useMediaQuery } from 'react-responsive'
 import db from '../firebase.config'
 import Songs from './Songs'
-import classes from '../styles/Requester.module.css'
 
 const Requester = () => {
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 767px)' })
-  const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 767px)' })
-
   const [song, setSong] = useState('')
   const [requester, setRequester] = useState('')
 
@@ -44,77 +39,37 @@ const Requester = () => {
 
   return (
     <>
-      <div className={classes.container}>
+      <div className>
         <form onSubmit={addSong}>
-          {
-            isTabletOrMobile &&
-            isTabletOrMobileDevice
-              ? (
-                <div className={classes.mobileInputContainer}>
-                  <input
-                    type='text'
-                    className={classes.fieldMobile}
-                    value={requester}
-                    onChange={e => setRequester(e.target.value)}
-                    placeholder='this person'
-                  />
-                  <input
-                    type='text'
-                    className={classes.fieldMobile}
-                    value={song}
-                    onChange={e => setSong(e.target.value)}
-                    placeholder='wants to hear...'
-                  />
-                  <input className={classes.submitBtn} type='submit' />
-                </div>)
-              : (
-                <div>
-                  <input
-                    type='text'
-                    className={classes.field}
-                    value={requester}
-                    onChange={e => setRequester(e.target.value)}
-                    placeholder='this person'
-                  />
-                  <input
-                    type='text'
-                    className={classes.field}
-                    value={song}
-                    onChange={e => setSong(e.target.value)}
-                    placeholder='wants to hear...'
-                  />
-                  <input className={classes.submitBtn} type='submit' />
-                </div>
-                )
-          }
+          <div className='flex flex-row justify-evenly text-indigo-50'>
+            <input
+              type='text'
+              className='bg-gradient-to-r from-jazzPurple via-jazzLightPurp to-jazzBlue  h-10 rounded-md placeholder-indigo-50'
+              value={requester}
+              onChange={e => setRequester(e.target.value)}
+              placeholder='this person'
+            />
+            <input
+              type='text'
+              className='bg-gradient-to-r from-jazzPurple via-jazzLightPurp to-jazzBlue  h-10 rounded-md placeholder-indigo-50'
+              value={song}
+              onChange={e => setSong(e.target.value)}
+              placeholder='wants to hear...'
+            />
+            <input className='bg-jazzLightPurp rounded-md w-28 uppercase cursor-pointer' type='submit' />
+          </div>
         </form>
       </div>
-      {
-        isTabletOrMobile &&
-        isTabletOrMobileDevice
-          ? (
-            <div className={classes.requestContainerMobile}>
-              {songs.map((song, index) => (
-                <Songs
-                  key={index}
-                  index={index}
-                  song={song}
-                  deleteSong={deleteSong}
-                />
-              ))}
-            </div>)
-          : (
-            <div className={classes.requestContainer}>
-              {songs.map((song, index) => (
-                <Songs
-                  key={index}
-                  index={index}
-                  song={song}
-                  deleteSong={deleteSong}
-                />
-              ))}
-            </div>)
-      }
+      <div className>
+        {songs.map((song, index) => (
+          <Songs
+            key={index}
+            index={index}
+            song={song}
+            deleteSong={deleteSong}
+          />
+        ))}
+      </div>
     </>
   )
 }

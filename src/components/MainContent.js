@@ -1,25 +1,13 @@
 import React from 'react'
-import { useMediaQuery } from 'react-responsive'
 import Requester from './Requester'
 
 const MainContent = () => {
   return (
-    <div>
-      <header>
+    <div className='register-user-content flex flex-col text-center'>
+      <header className='mt-4'>
         <div className>
-          <div className>
-            <p>made by <span>👩🏻‍💻</span> <a href='https://kellilandry.dev' target='_blank' rel='noreferrer'>kelli landry</a> (hire me!)</p>
-          </div>
-          <h1 ><span className>the janky piano show presents: janky requests</span></h1>
-          <h2 className><span>because without this, peyton's shit at remembering</span></h2>
-          <strong className>sponsored by:</strong>
-        </div>
-        <div className>
-          <div className>
-            <p>made by <span>👩🏻‍💻</span> <a href='https://kellilandry.dev' target='_blank' rel='noreferrer'>kelli landry</a></p>
-          </div>
-          <h1 className><span className>the janky piano show presents: janky requests</span></h1>
-          <h2 className><span className>because without this, peyton's shit at remembering</span></h2>
+          <h1 className='text-4xl font-light text-indigo-50'><span className='bg-gradient-to-r from-jazzPurple via-jazzLightPurp to-jazzBlue'>the janky piano show presents: janky requests</span></h1>
+          <h2 className='text-md font-bold text-indigo-50'><span className='bg-gradient-to-r from-jazzPurple via-jazzLightPurp to-jazzBlue'>because without this, peyton's shit at remembering</span></h2>
         </div>
       </header>
       <main className>

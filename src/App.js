@@ -18,6 +18,9 @@ function App () {
         <Route path='/main' component={MainContent} />
       </Switch>
       <NavBar />
+      <footer>
+        <p>made by <span>👩🏻‍💻</span> <a href='https://kellilandry.dev' target='_blank' rel='noreferrer'>kelli landry</a></p>
+      </footer>
     </div>
   )
 }
