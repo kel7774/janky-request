@@ -38,8 +38,8 @@ const Requester = () => {
   }
 
   return (
-    <>
-      <div className>
+    <div>
+      <div className=''>
         <form onSubmit={addSong}>
           <div className='flex flex-row justify-evenly text-indigo-50'>
             <input
@@ -60,7 +60,7 @@ const Requester = () => {
           </div>
         </form>
       </div>
-      <div className>
+      <div className='overflow-scroll'>
         {songs.map((song, index) => (
           <Songs
             key={index}
@@ -70,7 +70,7 @@ const Requester = () => {
           />
         ))}
       </div>
-    </>
+    </div>
   )
 }
 
