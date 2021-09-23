@@ -10,6 +10,20 @@
   background-size: cover;
 }
 
+.requestContainer::-webkit-scrollbar {
+  width: 1rem;
+  background-color: transparent;
+}
+
+.requestContainer::-webkit-scrollbar-track {
+  border-radius: 0.3rem;
+}
+
+.requestContainer::-webkit-scrollbar-thumb {
+  border-radius: 0.3rem;
+  background-color: #382787;
+}
+
 
 @font-face {
   font-family: 'Ad Lib';
