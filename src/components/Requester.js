@@ -38,29 +38,27 @@ const Requester = () => {
   }
 
   return (
-    <div>
-      <div className=''>
+    <div className='main-content'>
         <form onSubmit={addSong}>
-          <div className='flex flex-row justify-evenly text-indigo-50'>
+        <div className='flex flex-col w-40 text-indigo-50 m-zeroAuto'>
             <input
               type='text'
-              className='bg-gradient-to-r from-jazzPurple via-jazzLightPurp to-jazzBlue  h-10 rounded-md placeholder-indigo-50'
+            className='bg-gradient-to-r from-jazzPurple via-jazzLightPurp to-jazzBlue  h-10 my-8 pl-3 rounded-md placeholder-indigo-50'
               value={requester}
               onChange={e => setRequester(e.target.value)}
               placeholder='this person'
             />
             <input
               type='text'
-              className='bg-gradient-to-r from-jazzPurple via-jazzLightPurp to-jazzBlue  h-10 rounded-md placeholder-indigo-50'
+            className='bg-gradient-to-r from-jazzPurple via-jazzLightPurp to-jazzBlue  h-10 mb-8 pl-3 rounded-md placeholder-indigo-50'
               value={song}
               onChange={e => setSong(e.target.value)}
               placeholder='wants to hear...'
             />
-            <input className='bg-jazzLightPurp rounded-md w-28 uppercase cursor-pointer' type='submit' />
+          <input className='bg-jazzLightPurp border-2 border-jazzLightPurp rounded-md w-28 uppercase cursor-pointer p-2 hover:bg-indigo-50 hover:text-jazzLightPurp duration-300 ease-in' type='submit' />
           </div>
         </form>
-      </div>
-      <div className='requestContainer h-96 overflow-scroll mt-12'>
+      <div className='requestContainer'>
         {songs.map((song, index) => (
           <Songs
             key={index}

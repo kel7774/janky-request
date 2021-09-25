@@ -3,7 +3,7 @@ import Requester from './Requester'
 
 const MainContent = () => {
   return (
-    <div className='register-user-content flex flex-col text-center'>
+    <div className='flex flex-col text-center'>
       <header className='mt-4 mb-12'>
         <div className>
           <h1 className='text-4xl font-light text-indigo-50'><span className='bg-gradient-to-r from-jazzPurple via-jazzLightPurp to-jazzBlue'>the janky piano show presents: janky requests</span></h1>

@@ -3,13 +3,6 @@
 @tailwind utilities;
 
 
-.main-page-content,
-.register-user-content {
-  background: url('../src/assets/Jazz_overlay.jpg') no-repeat;
-  height: 100vh;
-  background-size: cover;
-}
-
 .requestContainer::-webkit-scrollbar {
   width: 1rem;
   background-color: transparent;
@@ -22,12 +15,6 @@
 .requestContainer::-webkit-scrollbar-thumb {
   border-radius: 0.3rem;
   background-color: #382787;
-}
-
-
-@font-face {
-  font-family: 'Ad Lib';
-  src: local('Ad Lib'), url(../src/assets/fonts/AdLibRegular.ttf) format('truetype');
 }
 
 body {
