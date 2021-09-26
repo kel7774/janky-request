@@ -2,6 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+.background-image {
+    background-image:
+    linear-gradient(to bottom, rgba(56, 39, 135, 0.52), rgba(4, 196, 199, 0.52)),
+    url('../src/assets/hunter_peyton.jpeg');
+    background-position: center center;
+    background-attachment: fixed;
+    height: 100vh;
+    background-size: cover;
+}
+
+.main-page-content {
+    background-image:
+    linear-gradient(to bottom, rgba(56, 39, 135, 0.52), rgba(4, 196, 199, 0.52)),
+    url('../src/assets/janky_things.jpeg');
+    background-position: center center;
+    background-attachment: fixed;
+    height: 100vh;
+    background-size: cover;
+}
+
+.gradient-text {
+  /* Fallback: Set a background color. */
+  background-color: red;
+  
+  /* Create the gradient. */
+  background-image: linear-gradient(45deg, rgb(56, 39, 135), rgb(4, 196, 199));
+  
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
 
 .requestContainer::-webkit-scrollbar {
   width: 1rem;

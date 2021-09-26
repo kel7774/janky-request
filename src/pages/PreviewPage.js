@@ -22,7 +22,6 @@ const PreviewPage = () => {
   return (
     <div className='main-page-content flex flex-col'>
       <div className='text-center'>
-        <h1 className='font-light text-4xl text-indigo-50'><span className='bg-gradient-to-r from-jazzPurple via-jazzLightPurp to-jazzBlue p-3'>your janky requests</span></h1>
         <div className='song-container'>
           {songs.map((song, index) => (
             <Songs
