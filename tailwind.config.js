@@ -20,6 +20,10 @@ module.exports = {
       margin: {
         'zeroAuto': '0 auto',
         'autoZero': 'auto 0'
+      },
+      height: {
+        '95vh': '95vh',
+        '35vh': '35vh',
       }
     },
   },
