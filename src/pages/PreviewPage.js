@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import db from '../firebase.config'
 import Songs from '../components/Songs'
+import JankyThings from '../assets/janky_things.jpeg';
 
 const PreviewPage = () => {
   function useSongs () {
@@ -20,21 +21,12 @@ const PreviewPage = () => {
 
   const songs = useSongs()
   return (
-    <>
-      <div className='main-page-content'>
-        {/* <div className='song-container'>
-          {songs.map((song, index) => (
-            <Songs
-              key={index}
-              song={song}
-            />
-          ))}
-      </div> */}
-      </div>
-      <div className='h-3/6 bg-gradient-to-tr- from-gray-200 via-red-700 to-purple-600'>
-        <header>janky piano show</header>
-      </div>
-    </>
+    <div className='text-center bg-gradient-to-br from-jazzBlue via-jazzPurple to-jazzLightPurp h-screen'>
+      <img className='janky-things m-auto p-12' src={JankyThings} height='1200px' width='1200px' alt="janky-things" />
+      <section>
+        <h1 className='text-white tracking-wide'>janky reviews</h1>
+      </section>
+    </div>
   )
 }
 

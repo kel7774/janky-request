@@ -46,14 +46,14 @@ const Requester = () => {
             className='bg-gradient-to-r from-jazzPurple via-jazzLightPurp to-jazzBlue  h-10 my-8 pl-3 rounded-md placeholder-indigo-50'
               value={requester}
               onChange={e => setRequester(e.target.value)}
-              placeholder='this person'
+              placeholder='i, [state your name]'
             />
             <input
               type='text'
             className='bg-gradient-to-r from-jazzPurple via-jazzLightPurp to-jazzBlue  h-10 mb-8 pl-3 rounded-md placeholder-indigo-50'
               value={song}
               onChange={e => setSong(e.target.value)}
-              placeholder='wants to hear...'
+              placeholder='wanna hear'
             />
           <input className='bg-jazzLightPurp border-2 border-jazzLightPurp rounded-md w-28 uppercase cursor-pointer p-2 hover:bg-indigo-50 hover:text-jazzLightPurp duration-300 ease-in' type='submit' />
           </div>

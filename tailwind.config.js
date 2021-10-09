@@ -9,6 +9,7 @@ module.exports = {
         'venmoBlue': '#3192C8',
         'spotifyGreen': '#1CCC5B',
         'tiktokMaroon': '#E21C4E',
+        'youtubeRed': '#FF0101',
         'peytonPink': '#270961',
         'jazzPurple': '#382787',
         'jazzLightPurp': '#9F2CAD',
@@ -18,8 +19,13 @@ module.exports = {
         'xs': '480px'
       },
       margin: {
+        'auto': 'auto',
         'zeroAuto': '0 auto',
-        'autoZero': 'auto 0'
+        'autoZero': 'auto 0',
+        'negative20': '10vh 0 0 0'
+      },
+      padding: {
+        '25': '25rem 0 0 0',
       },
       height: {
         '95vh': '95vh',
