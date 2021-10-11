@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className='w-full h-16 bottom-0 fixed bg-jazzPurple'>
+        <footer className='w-full h-16 bg-jazzPurple'>
             <div className='flex flex-row justify-between text-indigo-50 font-medium px-20 py-4'>
                 <section className='font-medium'>
                     <a href='https://kellilandry.dev' target='_blank' rel='noreferrer' className='flex flex-row font-bold hover:underline'>

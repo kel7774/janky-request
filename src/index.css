@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* custom styles */
+
 .janky-things {
   clip-path: circle(50% at 50% 50%);
+  animation: fadeInAnimation ease .23s;
+}
+
+.stonks {
   animation: fadeInAnimation ease .23s;
 }
 

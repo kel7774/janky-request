@@ -1,5 +1,4 @@
 import React from 'react'
-import Requester from './Requester'
 
 const MainContent = () => {
   return (
@@ -11,7 +10,6 @@ const MainContent = () => {
         </div>
       </header>
       <main className>
-        <Requester />
       </main>
     </div>
   )
