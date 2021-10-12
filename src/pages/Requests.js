@@ -1,6 +1,6 @@
 import React from "react";
 import Songs from '../components/Songs';
-import db from '../firebase.config'
+import {db} from '../firebase.config'
 import stonks from '../assets/stonks.png';
 
 const Requests = () => {
@@ -39,6 +39,7 @@ const Requests = () => {
   const songs = useSongs()
   return (
     <div className="text-center h-full p-12">
+      <button className='p-6 border-4'>login</button>
         <img src={stonks} alt="purchase stonks" height='1000px' width='1000px' className='stonks m-auto rounded-lg' />
       <div className='peyton-intro'>
         <h1>that's peyton</h1>
