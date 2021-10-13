@@ -13,7 +13,8 @@ module.exports = {
         'peytonPink': '#270961',
         'jazzPurple': '#382787',
         'jazzLightPurp': '#9F2CAD',
-        'jazzBlue': '#04c4c7'
+        'jazzBlue': '#04c4c7',
+        'googleBlue': '#4285f4'
       },
       screens: {
         'xs': '480px'

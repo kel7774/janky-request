@@ -13,7 +13,7 @@ export default function Navbar({ fixed }) {
                         >
                             the janky piano show
                         </a>
-                        <a className="cursor-pointer text-sm font-bold text-white leading-relaxed uppercase px-3 py-1 " href="/requests">make requests</a>
+                        <a className="cursor-pointer text-sm font-bold text-white leading-relaxed uppercase px-3 py-1 " href="/login">make requests</a>
                         <button
                             className=" cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
                             type="button"

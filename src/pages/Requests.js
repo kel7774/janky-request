@@ -1,11 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useHistory } from "react-router";
 import Songs from '../components/Songs';
-import {db} from '../firebase.config'
+import {db, logout, auth} from '../firebase.config'
 import stonks from '../assets/stonks.png';
 
 const Requests = () => {
+  const [user, loading, error] = useAuthState(auth);
+  const [name, setName] = useState("");
+  const history = useHistory();
+
   const [song, setSong] = React.useState('')
   const [requester, setRequester] = React.useState('')
+
+  const fetchUserName = async () => {
+    try {
+      const query = await db
+        .collection("users")
+        .where("uid", "==", user?.uid)
+        .get();
+      const data = await query.docs[0].data();
+      setName(data.name);
+    } catch (err) {
+      console.error(err);
+      alert("An error occured while fetching user data");
+    }
+  };
+
+  useEffect(() => {
+    if (loading) return;
+    if (!user) return history.replace("/");
+
+    fetchUserName();
+  }, [user, loading]);
 
   function useSongs () {
     const [songs, setSongs] = React.useState([])
@@ -40,6 +67,9 @@ const Requests = () => {
   return (
     <div className="text-center h-full p-12">
       <button className='p-6 border-4'>login</button>
+      <button className="p-6 border-4" onClick={logout}>
+          Logout
+        </button>
         <img src={stonks} alt="purchase stonks" height='1000px' width='1000px' className='stonks m-auto rounded-lg' />
       <div className='peyton-intro'>
         <h1>that's peyton</h1>
