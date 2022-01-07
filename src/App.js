@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import {Route, Routes} from 'react-router'
 import TopNav from './components/TopNav'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -11,12 +11,12 @@ function App () {
   return (
     <div className='App'>
       <TopNav />
-      <Switch>
-        <Route path='/' exact component={PreviewPage} />
-        <Route path='/login' component={Login} />
-        <Route path='/register' component={Register} />
-        <Route path='/requests' component={Requests} />
-      </Switch>
+      <Routes>
+        <Route path='/' exact element={<PreviewPage/>} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register/>} />
+        <Route path='/requests' element={<Requests />} />
+      </Routes>
       <Footer />
     </div>
   )

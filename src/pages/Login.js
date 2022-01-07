@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link, useHistory} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {auth, signInWithEmailAndPassword, signInWithGoogle} from '../firebase.config'
 import {useAuthState} from 'react-firebase-hooks/auth'
 
@@ -9,14 +9,14 @@ export default function Login() {
 
   const [user, loading] = useAuthState(auth)
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     if (loading) {
       // maybe trigger a loading screen
       return;
     }
-    if (user) history.replace('/requests')
+    if (user) navigate('/requests')
   }, [user, loading]);
 
   return (

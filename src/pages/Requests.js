@@ -1,6 +1,6 @@
 import React from "react";
 import {useAuthState} from "react-firebase-hooks/auth";
-import {useHistory} from "react-router";
+import {useNavigate} from "react-router-dom";
 import Songs from '../components/Songs';
 import {db, logout, auth, makeAdmin} from '../firebase.config'
 import stonks from '../assets/stonks.png';
@@ -12,16 +12,16 @@ const Requests = () => {
 
   const [user, loading] = useAuthState(auth);
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const onLogout = () => {
-    logout();
-    history.replace('/');
+    logout()
+    navigate('/')
   }
 
   React.useEffect(() => {
     if (loading) return;
-    if (!user) return history.replace("/requests");
+    if (!user) return navigate('/requests');
   }, [user, loading]);
 
   function useSongs () {
