@@ -2,6 +2,7 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
 import 'firebase/database'
+import 'firebase/functions'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -13,11 +14,19 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_APP_ID
 }
 
-firebase.initializeApp(firebaseConfig)
+firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth()
 const db = firebase.firestore()
+const functions = firebase.functions();
 
 const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+const makeAdmin = (email) => {
+  const addAdminRole = functions.httpsCallable('addAdminRole');
+  addAdminRole({ email: email }).then(result => {
+    console.log(result, 'added');
+  });
+}
 
 const signInWithGoogle = async () => {
   try {
@@ -87,5 +96,6 @@ export {
   signInWithEmailAndPassword,
   registerWithEmailAndPassword,
   sendPasswordResetEmail,
+  makeAdmin,
   logout,
 }

@@ -1,20 +1,24 @@
-import React, { useState, useEffect } from 'react'
-import { Link, useHistory } from 'react-router-dom'
-import { auth, signInWithEmailAndPassword, signInWithGoogle} from '../firebase.config'
-import { useAuthState } from 'react-firebase-hooks/auth'
+import React from 'react'
+import {Link, useHistory} from 'react-router-dom'
+import {auth, signInWithEmailAndPassword, signInWithGoogle} from '../firebase.config'
+import {useAuthState} from 'react-firebase-hooks/auth'
 
 export default function Login() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [user, loading, error] = useAuthState(auth)
+  const [email, setEmail] = React.useState("")
+  const [password, setPassword] = React.useState("")
+
+  const [user, loading] = useAuthState(auth)
+
   const history = useHistory();
-  useEffect(() => {
+
+  React.useEffect(() => {
     if (loading) {
       // maybe trigger a loading screen
       return;
     }
     if (user) history.replace('/requests')
   }, [user, loading]);
+
   return (
     <div className="text-center h-screen p-12">
       <div className='flex flex-col m-zeroAuto w-72'>

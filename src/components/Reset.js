@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from "react"
-import { useAuthState } from "react-firebase-hooks/auth"
-import { useHistory } from "react-router"
-import { Link } from "react-router-dom"
-import { auth, sendPasswordResetEmail } from "./firebase.config"
+import React from "react"
+import {useAuthState} from "react-firebase-hooks/auth"
+import {useHistory} from "react-router"
+import {Link} from "react-router-dom"
+import {auth, sendPasswordResetEmail} from "./firebase.config"
 
 function Reset() {
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = React.useState("")
+
   const [user, loading, error] = useAuthState(auth)
   const history = useHistory()
-  useEffect(() => {
+
+  React.useEffect(() => {
     if (loading) return;
     if (user) history.replace("/main")
   }, [user, loading])
+
   return (
     <div className="reset">
       <div className="reset__container">

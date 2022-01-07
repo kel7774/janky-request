@@ -1,41 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useHistory } from "react-router";
+import React from "react";
+import {useAuthState} from "react-firebase-hooks/auth";
+import {useHistory} from "react-router";
 import Songs from '../components/Songs';
-import {db, logout, auth} from '../firebase.config'
+import {db, logout, auth, makeAdmin} from '../firebase.config'
 import stonks from '../assets/stonks.png';
 
 const Requests = () => {
-  const [user, loading, error] = useAuthState(auth);
-  const [name, setName] = useState("");
-  const history = useHistory();
-
   const [song, setSong] = React.useState('')
+  const [songs, setSongs] = React.useState([])
   const [requester, setRequester] = React.useState('')
 
-  const fetchUserName = async () => {
-    try {
-      const query = await db
-        .collection("users")
-        .where("uid", "==", user?.uid)
-        .get();
-      const data = await query.docs[0].data();
-      setName(data.name);
-    } catch (err) {
-      console.error(err);
-      alert("An error occured while fetching user data");
-    }
-  };
+  const [user, loading] = useAuthState(auth);
 
-  useEffect(() => {
+  const history = useHistory();
+
+  const onLogout = () => {
+    logout();
+    history.replace('/');
+  }
+
+  React.useEffect(() => {
     if (loading) return;
-    if (!user) return history.replace("/");
-
-    fetchUserName();
+    if (!user) return history.replace("/requests");
   }, [user, loading]);
 
   function useSongs () {
-    const [songs, setSongs] = React.useState([])
     React.useEffect(() => {
       db.collection('requests')
         .onSnapshot(snapshot => {
@@ -63,13 +52,18 @@ const Requests = () => {
     db.collection('requests').doc(id).delete()
   }
 
-  const songs = useSongs()
+useSongs()
+  
   return (
     <div className="text-center h-full p-12">
       <button className='p-6 border-4'>login</button>
-      <button className="p-6 border-4" onClick={logout}>
+      <button className="p-6 border-4" onClick={onLogout}>
           Logout
         </button>
+        <form onSubmit={makeAdmin}>
+          <input type="email" />
+          <input type="submit" />
+        </form>
         <img src={stonks} alt="purchase stonks" height='1000px' width='1000px' className='stonks m-auto rounded-lg' />
       <div className='peyton-intro'>
         <h1>that's peyton</h1>
