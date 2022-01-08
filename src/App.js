@@ -15,7 +15,7 @@ function App () {
         <Route path='/' exact element={<PreviewPage/>} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register/>} />
-        <Route path='/requests' element={<Requester />} />
+        <Route path='/makerequests' element={<Requester />} />
       </Routes>
       <Footer />
     </div>
