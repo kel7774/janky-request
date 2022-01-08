@@ -5,7 +5,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import PreviewPage from './pages/PreviewPage'
 import Footer from './components/Footer'
-import Requests from './pages/Requests'
+import Requester from './pages/Requester'
 
 function App () {
   return (
@@ -15,7 +15,7 @@ function App () {
         <Route path='/' exact element={<PreviewPage/>} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register/>} />
-        <Route path='/requests' element={<Requests />} />
+        <Route path='/requests' element={<Requester />} />
       </Routes>
       <Footer />
     </div>
