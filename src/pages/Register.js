@@ -30,36 +30,38 @@ function Register() {
       <div className='flex flex-col m-zeroAuto w-72'>
         <input
           type="text"
-          className="my-5 px-2"
+          className='h-10 my-4 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple active:border-black'
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Full Name"
+          placeholder="full name"
         />
         <input
           type="text"
-          className="my-5 px-2"
+          className='h-10 my-4 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple active:border-black'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
+          placeholder="e-mail address"
         />
         <input
           type="password"
-          className="my-5 px-2"
+          className='h-10 my-4 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple active:border-black'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
+          placeholder="password"
         />
-        <button className="bg-jazzPurple text-white" onClick={register}>
-          Register
-        </button>
-        <button
-          className="bg-googleBlue text-white"
-          onClick={signInWithGoogle}
-        >
-          Register with Google
-        </button>
         <div>
-          Already have an account? <Link to="/login" className='font-bold'>Login</Link> now.
+          <button className='bg-jazzPurple text-indigo-50 rounded font-semibold border-2 border-jazzPurple w-56 uppercase cursor-pointer p-2 hover:bg-indigo-50 hover:text-jazzPurple duration-300 ease-in mb-3' onClick={register}>
+            register
+          </button>
+          <button
+            className="bg-googleBlue text-indigo-50 rounded font-semibold border-2 border-googleBlue w-56 uppercase cursor-pointer p-2 hover:bg-indigo-50 hover:text-googleBlue duration-300 ease-in mb-3"
+            onClick={signInWithGoogle}
+          >
+            register with google
+          </button>
+        </div>
+        <div>
+          already have an account? <Link to="/login" className='font-bold'>login</Link> now.
         </div>
       </div>
     </div>

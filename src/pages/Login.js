@@ -1,9 +1,9 @@
 import React from 'react'
+import {useAuthState} from 'react-firebase-hooks/auth'
 import {Link, useNavigate} from 'react-router-dom'
 import {Loader} from 'semantic-ui-react'
 
 import {auth, signInWithEmailAndPassword, signInWithGoogle} from '../firebase.config'
-import {useAuthState} from 'react-firebase-hooks/auth'
 
 export default function Login() {
   const [email, setEmail] = React.useState("")
@@ -25,32 +25,34 @@ export default function Login() {
       <div className='flex flex-col m-zeroAuto w-72'>
         <input
           type="text"
-          className="my-5 px-2"
+          className='h-10 my-4 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple active:border-black'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
+          placeholder="e-mail"
         />
         <input
           type="password"
-          className="my-5 px-2"
+          className='h-10 my-4 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple active:border-black'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
+          placeholder="password"
         />
-        <button
-          className="bg-jazzPurple text-white"
-          onClick={() => signInWithEmailAndPassword(email, password)}
-        >
-          Login
-        </button>
-        <button className="bg-googleBlue text-white" onClick={signInWithGoogle}>
-          Login with Google
-        </button>
-        <div>
-          <Link to="/reset" className='font-bold'>Forgot Password</Link>
+        <div className>
+          <button
+            className='bg-jazzPurple text-indigo-50 rounded font-semibold border-2 border-jazzPurple w-56 uppercase cursor-pointer p-2 hover:bg-indigo-50 hover:text-jazzPurple duration-300 ease-in mb-3'
+            onClick={() => signInWithEmailAndPassword(email, password)}
+          >
+            login
+          </button>
+          <button className="bg-googleBlue text-indigo-50 rounded font-semibold border-2 border-googleBlue w-56 uppercase cursor-pointer p-2 hover:bg-indigo-50 hover:text-googleBlue duration-300 ease-in mb-3" onClick={signInWithGoogle}>
+            login with google
+          </button>
         </div>
         <div>
-          Don't have an account? <Link to="/register" className='font-bold'>Register</Link> now.
+          <Link to="/reset" className='font-bold'>forgot password</Link>
+        </div>
+        <div>
+          don't have an account? <Link to="/register" className='font-bold'>register</Link> now.
         </div>
       </div>
     </div>
