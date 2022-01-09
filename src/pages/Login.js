@@ -1,5 +1,7 @@
 import React from 'react'
 import {Link, useNavigate} from 'react-router-dom'
+import {Loader} from 'semantic-ui-react'
+
 import {auth, signInWithEmailAndPassword, signInWithGoogle} from '../firebase.config'
 import {useAuthState} from 'react-firebase-hooks/auth'
 
@@ -12,12 +14,11 @@ export default function Login() {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if (loading) {
-      // maybe trigger a loading screen
-      return;
+    if (user && loading) {
+      return <Loader size='massive'/>
     }
-    if (user) navigate('/requests')
-  }, [user, loading]);
+    if (user) navigate('/makerequests')
+  }, [user, loading, navigate])
 
   return (
     <div className="text-center h-screen p-12">
