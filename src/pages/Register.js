@@ -22,8 +22,8 @@ function Register() {
 
   React.useEffect(() => {
     if (loading) return;
-    if (user) navigate('/requests')
-  }, [user, loading])
+    if (user) navigate('/makerequests')
+  }, [user, loading, navigate])
   
   return (
     <div className="text-center h-screen p-12">

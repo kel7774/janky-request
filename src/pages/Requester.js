@@ -1,44 +1,15 @@
 import React from "react";
 import {useAuthState} from "react-firebase-hooks/auth";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, Link} from "react-router-dom";
 
-import {db, logout, auth} from '../firebase.config'
+import {db, auth} from '../firebase.config'
 
 import stonks from '../assets/stonks.png';
 
-const Requester = () => {
-  const [song, setSong] = React.useState('')
-  const [songs, setSongs] = React.useState([])
-  const [requester, setRequester] = React.useState('')
-  const [submitSuccess, setSubmitSuccess] = React.useState(false)
-
+const Requester = ({ song, setSong, requester, setRequester, submitSuccess, setSubmitSuccess, handleSong, handleRequester }) => {
   const [user, loading, error] = useAuthState(auth)
 
   const navigate = useNavigate()
-
-  const onLogout = () => {
-    logout()
-    navigate('/')
-  }
-
-  React.useEffect(() => {
-    if (loading) return
-    if (!user) return navigate('/')
-  }, [user, loading])
-
-  function useSongs () {
-    React.useEffect(() => {
-      db.collection('requests')
-        .onSnapshot(snapshot => {
-          const lists = snapshot.docs.map(doc => ({
-            id: doc.id,
-            ...doc.data()
-          }))
-          setSongs(lists)
-        })
-    }, [])
-    return songs
-  }
 
   const addSong = (e) => {
     e.preventDefault()
@@ -55,20 +26,19 @@ const Requester = () => {
     }
   }
 
-  const deleteSong = id => {
-    db.collection('requests').doc(id).delete()
-  }
-
-useSongs()
+  React.useEffect(() => {
+    if (loading) return
+    if (!user) return navigate('/makerequests')
+  }, [user, loading, navigate])
   
   return (
     <div className="text-center h-full p-12">
-        <img src={stonks} alt="purchase your stonks" height='1000px' width='1000px' className='stonks m-auto rounded-lg' />
-        <div className='flex flex-row justify-evenly mb-8'>
-          <caption className='flex flex-row text-sm font-bold'>👆 that's peyton</caption>
-          <div>😬</div>
-          <caption className='text-sm font-bold'>he's probably drunk</caption>
-        </div>
+      <img src={stonks} alt="purchase your stonks" height='1000px' width='1000px' className='stonks m-auto rounded-lg' />
+      <section className='flex flex-row justify-evenly mb-8'>
+        <caption className='flex flex-row text-sm font-bold'>👆 that's peyton</caption>
+        <div>😬</div>
+        <caption className='text-sm font-bold'>he's probably drunk</caption>
+      </section>
       <section className='mb-8'>
         <header className='font-normal'>tired of peyton forgetting your requests?</header>
         <p>wanna <em>actually</em> be in the queue?</p>
@@ -81,20 +51,27 @@ useSongs()
               type='text'
               className='h-10 my-8 pl-3 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple active:border-black'
               value={requester}
-              onChange={e => setRequester(e.target.value)}
+              onChange={handleRequester}
               placeholder='your name'
+              maxLength='30'
             />
             <input
               type='text '
               className='h-10 mb-8 pl-3 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple'
               value={song}
-              onChange={e => setSong(e.target.value)}
+              onChange={handleSong}
               placeholder='your request'
+              maxLength='30'
             />
           <input className='bg-jazzPurple rounded font-semibold border-2 border-jazzPurple w-28 uppercase cursor-pointer p-2 hover:bg-indigo-50 hover:text-jazzPurple duration-300 ease-in' type='submit' />
           </div>
         </form>
         {submitSuccess === true ? <div className='animate__animated animate__fadeOutDown'>🎉 success! request submitted</div> : null}
+      </div>
+      <div>
+        <h1>already requested a song?</h1>
+        <h4>check where you are in the queue</h4>
+        <Link to='/yourrequests'>🚀 click here</Link>
       </div>
       {/* {user &&
       <button className="p-6 border-4" onClick={onLogout}>
