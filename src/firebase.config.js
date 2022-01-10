@@ -21,13 +21,6 @@ const functions = firebase.functions();
 
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
-const makeAdmin = (email) => {
-  const addAdminRole = functions.httpsCallable('addAdminRole');
-  addAdminRole({ email: email }).then(result => {
-    console.log(result, 'added');
-  });
-}
-
 const signInWithGoogle = async () => {
   try {
     const res = await auth.signInWithPopup(googleProvider);
@@ -89,6 +82,21 @@ const logout = () => {
   auth.signOut();
 };
 
+// const checkAdmin = () => {
+//   auth.onAuthStateChanged(user => {
+//     if(user) {
+//       user.getIdTokenResult().then(idTokenResult => {
+//         console.log(idTokenResult.claims)
+//       }).catch(err => {
+//         console.log(err)
+//       });
+//     } else {
+//       return;
+//     }
+//   })
+// }
+
+
 export {
   auth,
   db,
@@ -96,6 +104,5 @@ export {
   signInWithEmailAndPassword,
   registerWithEmailAndPassword,
   sendPasswordResetEmail,
-  makeAdmin,
   logout,
 }

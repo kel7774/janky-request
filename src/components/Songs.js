@@ -1,8 +1,22 @@
 import React from 'react'
+// import firebase from 'firebase'
 import {Button, Modal} from 'semantic-ui-react'
 
 const Songs = ({ song, deleteSong }) => {
   const [open, setOpen] = React.useState(false)
+  // const [hidden, setHidden] = React.useState(true)
+
+//   firebase.auth().currentUser.getIdTokenResult(true)
+//   .then((idTokenResult) => {
+//   if (idTokenResult.claims.admin) {
+//     setHidden(!hidden);
+//   } else {
+//     setHidden(hidden);
+//   }
+// }).catch((error) => {
+//   console.log(error);
+// });
+
 
   const deleteASong = () => {
     deleteSong(song.id)
