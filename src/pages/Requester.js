@@ -35,9 +35,9 @@ const Requester = ({ song, setSong, requester, setRequester, submitSuccess, setS
     <div className="text-center h-full p-12">
       <img src={stonks} alt="purchase your stonks" height='1000px' width='1000px' className='stonks m-auto rounded-lg' />
       <section className='flex flex-row justify-evenly mb-8'>
-        <caption className='flex flex-row text-sm font-bold'>👆 that's peyton</caption>
+        <figcaption className='flex flex-row text-sm font-bold'>👆 that's peyton</figcaption>
         <div>😬</div>
-        <caption className='text-sm font-bold'>he's probably drunk</caption>
+        <figcaption className='text-sm font-bold'>he's probably drunk</figcaption>
       </section>
       <section className='mb-8'>
         <header className='font-normal'>tired of peyton forgetting your requests?</header>

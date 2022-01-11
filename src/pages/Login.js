@@ -37,7 +37,7 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="password"
         />
-        <div className>
+        <div>
           <button
             className='bg-jazzPurple text-indigo-50 rounded font-semibold border-2 border-jazzPurple w-56 uppercase cursor-pointer p-2 hover:bg-indigo-50 hover:text-jazzPurple duration-300 ease-in mb-3'
             onClick={() => signInWithEmailAndPassword(email, password)}

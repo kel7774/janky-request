@@ -15,9 +15,9 @@ const firebaseConfig = {
 }
 
 firebase.initializeApp(firebaseConfig);
+
 const auth = firebase.auth()
 const db = firebase.firestore()
-const functions = firebase.functions();
 
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
@@ -82,24 +82,23 @@ const logout = () => {
   auth.signOut();
 };
 
-// const checkAdmin = () => {
-//   auth.onAuthStateChanged(user => {
-//     if(user) {
-//       user.getIdTokenResult().then(idTokenResult => {
-//         console.log(idTokenResult.claims)
-//       }).catch(err => {
-//         console.log(err)
-//       });
-//     } else {
-//       return;
-//     }
-//   })
-// }
-
+const verifyAdmin = () => {
+  firebase.auth().currentUser.getIdTokenResult()
+  .then((idTokenResult) => {
+    if(!!idTokenResult.claims.admin) {
+      console.log('is Admin')
+    } else {
+      console.log('not an admin')
+    }
+  }).catch((error) => {
+    console.log(error)
+  })
+}
 
 export {
   auth,
   db,
+  verifyAdmin,
   signInWithGoogle,
   signInWithEmailAndPassword,
   registerWithEmailAndPassword,

@@ -1,11 +1,8 @@
 import React from 'react';
 import firebase from 'firebase/app'
-// import { useAuthState } from 'react-firebase-hooks/auth';
-// import {auth} from '../firebase.config'
 
 const AuthManager = () => {
   const functions = firebase.functions();
-  // const [user] = useAuthState(auth)
   const [email, setEmail] = React.useState('');
   const [success, setSuccess] = React.useState(false)
 
@@ -16,7 +13,7 @@ const AuthManager = () => {
       setSuccess(!success)
     });
   }
-  
+
   return (
     <div className="text-center h-screen p-12">
       <div className='flex flex-col m-zeroAuto w-72'>

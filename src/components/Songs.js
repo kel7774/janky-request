@@ -1,33 +1,36 @@
 import React from 'react'
-// import firebase from 'firebase'
 import {Button, Modal} from 'semantic-ui-react'
+import {useAuthState} from 'react-firebase-hooks/auth'
+
+import {auth} from '../firebase.config'
 
 const Songs = ({ song, deleteSong }) => {
   const [open, setOpen] = React.useState(false)
-  // const [hidden, setHidden] = React.useState(true)
+  const [canDelete, setCanDelete] = React.useState(false)
+  const [user] = useAuthState(auth)
 
-//   firebase.auth().currentUser.getIdTokenResult(true)
-//   .then((idTokenResult) => {
-//   if (idTokenResult.claims.admin) {
-//     setHidden(!hidden);
-//   } else {
-//     setHidden(hidden);
-//   }
-// }).catch((error) => {
-//   console.log(error);
-// });
-
+  const getAdminClaim = () => user.getIdTokenResult().then(idTokenResult => {
+    if(idTokenResult.claims.admin) {
+      setCanDelete(true)
+    } else {
+      setCanDelete(false)
+    }
+  })
 
   const deleteASong = () => {
     deleteSong(song.id)
     setOpen(false)
   }
 
+  React.useEffect(() => {
+    getAdminClaim()
+  });
+
   return (
     <>
       <section className='flex flex-row justify-center items-start'>
         <p>"{song.song}" requested by <span className='font-semibold'>{song.requester}</span></p>
-        <button onClick={() => setOpen(true)}>🗑 delete</button>
+        {canDelete ? <button onClick={() => setOpen(true)}>🗑 delete</button> : null}
       </section>
       <Modal dimmer size='mini' onClose={() => setOpen(false)} onOpen={() => setOpen(true)} open={open}>
         <Modal.Header>delete a request</Modal.Header>
