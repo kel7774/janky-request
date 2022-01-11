@@ -33,12 +33,12 @@ const Requester = ({ song, setSong, requester, setRequester, submitSuccess, setS
   
   return (
     <div className="text-center h-full p-12">
-      <img src={stonks} alt="purchase your stonks" height='1000px' width='1000px' className='stonks m-auto rounded-lg' />
-      <section className='flex flex-row justify-evenly mb-8'>
-        <figcaption className='flex flex-row text-sm font-bold'>👆 that's peyton</figcaption>
+      <section className='flex flex-row justify-evenly'>
+        <figcaption className='flex flex-row text-sm font-bold'>👇 that's peyton</figcaption>
         <div>😬</div>
         <figcaption className='text-sm font-bold'>he's probably drunk</figcaption>
       </section>
+      <img src={stonks} alt="purchase your stonks" height='1000px' width='1000px' className='stonks m-auto rounded-lg' />
       <section className='mb-8'>
         <header className='font-normal'>tired of peyton forgetting your requests?</header>
         <p>wanna <em>actually</em> be in the queue?</p>
@@ -71,12 +71,8 @@ const Requester = ({ song, setSong, requester, setRequester, submitSuccess, setS
       <div>
         <h1>already requested a song?</h1>
         <h4>check where you are in the queue</h4>
-        <Link to='/yourrequests'>🚀 click here</Link>
+        <button onClick={() => navigate('/yourrequests')} className='bg-jazzPurple text-indigo-50 rounded font-semibold border-2 border-jazzPurple w-56 uppercase cursor-pointer p-2 hover:bg-indigo-50 hover:text-jazzPurple duration-300 ease-in mb-3' >🚀 come on in</button>
       </div>
-      {/* {user &&
-      <button className="p-6 border-4" onClick={onLogout}>
-          Logout
-        </button>} */}
     </div>
   )
 }
