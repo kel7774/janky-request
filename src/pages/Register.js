@@ -29,6 +29,7 @@ function Register() {
     <div className="text-center h-screen p-12">
       <div className='flex flex-col m-zeroAuto w-72'>
         <input
+          required
           type="text"
           className='h-10 my-4 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple active:border-black'
           value={name}
@@ -36,6 +37,7 @@ function Register() {
           placeholder="full name"
         />
         <input
+          required
           type="text"
           className='h-10 my-4 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple active:border-black'
           value={email}
@@ -43,6 +45,7 @@ function Register() {
           placeholder="e-mail address"
         />
         <input
+          required
           type="password"
           className='h-10 my-4 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple active:border-black'
           value={password}
