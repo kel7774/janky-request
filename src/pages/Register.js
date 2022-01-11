@@ -31,7 +31,7 @@ function Register() {
         <input
           required
           type="text"
-          className='h-10 my-4 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple active:border-black'
+          className='h-10 my-4 p-2 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple active:border-black'
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="full name"
@@ -39,7 +39,7 @@ function Register() {
         <input
           required
           type="text"
-          className='h-10 my-4 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple active:border-black'
+          className='h-10 my-4 p-2 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple active:border-black'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="e-mail address"
@@ -47,7 +47,7 @@ function Register() {
         <input
           required
           type="password"
-          className='h-10 my-4 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple active:border-black'
+          className='h-10 my-4 p-2 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple active:border-black'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="password"

@@ -17,7 +17,8 @@ module.exports = {
         'googleBlue': '#4285f4'
       },
       screens: {
-        'xs': '480px'
+        'xs': '480px',
+        'xxs': '390px'
       },
       margin: {
         'auto': 'auto',
