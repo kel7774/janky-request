@@ -5,6 +5,7 @@ import {db} from './firebase.config'
 
 import TopNav from './components/TopNav'
 import Footer from './components/Footer'
+// import ProtectedRoute from './components/ProtectedRoute'
 
 import AuthManager from './pages/AuthManager'
 import Login from './pages/Login'
@@ -48,7 +49,7 @@ useSongs()
     <div className='App'>
       <TopNav />
       <Routes>
-        <Route path='/authmanager' element={<AuthManager />} />
+        {/* <Route path='/authmanager' element={<ProtectedRoute><AuthManager /></ProtectedRoute>} /> */}
         <Route path='/' exact element={<PreviewPage/>} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register/>} />

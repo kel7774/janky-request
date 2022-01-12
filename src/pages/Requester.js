@@ -1,6 +1,6 @@
 import React from "react";
 import {useAuthState} from "react-firebase-hooks/auth";
-import {useNavigate, Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 import {db, auth} from '../firebase.config'
 
