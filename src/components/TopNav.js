@@ -3,7 +3,7 @@ import React from 'react'
 export default function Navbar({ fixed }) {
     const [navbarOpen, setNavbarOpen] = React.useState(false);
 
-    return (
+     return (
         <>
             <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-jazzPurple font-extrabold">
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">

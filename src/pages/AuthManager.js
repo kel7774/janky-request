@@ -1,10 +1,16 @@
 import React from 'react';
 import firebase from 'firebase/app'
+import {useAuthState} from 'react-firebase-hooks/auth'
+
+import {auth} from '../firebase.config'
 
 const AuthManager = () => {
-  const functions = firebase.functions();
-  const [email, setEmail] = React.useState('');
+  const functions = firebase.functions()
+
+  const [email, setEmail] = React.useState('')
   const [success, setSuccess] = React.useState(false)
+
+  const [user] = useAuthState(auth)
 
   const makeAdmin = () => {
     const addAdminRole = functions.httpsCallable('addAdminRole')
@@ -16,7 +22,10 @@ const AuthManager = () => {
 
   return (
     <div className="text-center h-screen p-12">
-      <div className='flex flex-col m-zeroAuto w-72'>
+      {user === null ? (
+        <div>nope</div>
+      ) : ( 
+        <div className='flex flex-col m-zeroAuto w-72'>
           <header>make an admin:</header>
           <input
             type='email'
@@ -28,7 +37,8 @@ const AuthManager = () => {
           {!success && (
             <div className='animate__animated animate__fadeOutDown'>🔓 you are now an admin!</div>
           )}
-      </div>
+        </div>
+      )}
     </div>
   )
 }

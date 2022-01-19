@@ -38,7 +38,7 @@ function Register() {
         />
         <input
           required
-          type="text"
+          type="email"
           className='h-10 my-4 p-2 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple active:border-black'
           value={email}
           onChange={(e) => setEmail(e.target.value)}

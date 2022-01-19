@@ -1,7 +1,6 @@
 import React from 'react'
 import {useAuthState} from 'react-firebase-hooks/auth'
 import {Link, useNavigate} from 'react-router-dom'
-import {Loader} from 'semantic-ui-react'
 
 import {auth, signInWithEmailAndPassword, signInWithGoogle} from '../firebase.config'
 
@@ -14,8 +13,8 @@ export default function Login() {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if (user && loading) {
-      return <Loader size='massive'/>
+    if (!user) {
+      return navigate('/login')
     }
     if (user) navigate('/makerequests')
   }, [user, loading, navigate])
@@ -24,7 +23,7 @@ export default function Login() {
     <div className="text-center h-screen p-12">
       <div className='flex flex-col m-zeroAuto w-72'>
         <input
-          type="text"
+          type="email"
           className='h-10 my-4 p-2 rounded text-jazzPurple placeholder-jazzPurple border-2 border-jazzPurple active:border-black'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
