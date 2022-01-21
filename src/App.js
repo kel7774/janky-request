@@ -3,6 +3,8 @@ import {Route, Routes} from 'react-router'
 
 import {db} from './firebase.config'
 
+import { AuthProvider, useAuth } from './context/AuthContext'
+
 import TopNav from './components/TopNav'
 import Footer from './components/Footer'
 
@@ -46,17 +48,19 @@ useSongs()
 
   return (
     <div className='App'>
-      <TopNav />
-      <Routes>
-        <Route path='/authmanager' element={<AuthManager />} />
-        <Route path='/' exact element={<PreviewPage/>} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register/>} />
-        <Route path='/reset' element={<Reset />} />
-        <Route path='/makerequests' element={<Requester submitSuccess={submitSuccess} setSubmitSuccess={setSubmitSuccess} requester={requester} handleRequester={handleRequester} setRequester={setRequester} song={song} handleSong={handleSong} setSong={setSong} />} />
-        <Route path='/yourrequests' element={<SongListingScreen songs={songs} />} />
-      </Routes>
-      <Footer />
+      <AuthProvider>
+        <TopNav />
+        <Routes>
+          <Route path='/authmanager' element={<AuthManager />} />
+          <Route path='/' exact element={<PreviewPage/>} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register/>} />
+          <Route path='/reset' element={<Reset />} />
+          <Route path='/makerequests' element={<Requester submitSuccess={submitSuccess} setSubmitSuccess={setSubmitSuccess} requester={requester} handleRequester={handleRequester} setRequester={setRequester} song={song} handleSong={handleSong} setSong={setSong} />} />
+          <Route path='/yourrequests' element={<SongListingScreen songs={songs} />} />
+        </Routes>
+        <Footer />
+      </AuthProvider>
     </div>
   )
 }

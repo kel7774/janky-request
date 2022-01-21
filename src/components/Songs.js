@@ -1,21 +1,7 @@
 import React from 'react'
 import {Button, Modal} from 'semantic-ui-react'
-import {useAuthState} from 'react-firebase-hooks/auth'
 
-import {auth} from '../firebase.config'
-
-const Songs = ({ song, deleteSong }) => {
-  const [open, setOpen] = React.useState(false)
-  const [canDelete, setCanDelete] = React.useState(false)
-  const [user] = useAuthState(auth)
-
-  const getAdminClaim = () => user.getIdTokenResult().then(idTokenResult => {
-    if(idTokenResult.claims.admin) {
-      setCanDelete(true)
-    } else {
-      setCanDelete(false)
-    }
-  })
+const Songs = ({ song, deleteSong, canDelete, getAdminClaim, open, setOpen }) => {
 
   const deleteASong = () => {
     deleteSong(song.id)
